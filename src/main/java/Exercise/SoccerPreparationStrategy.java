@@ -2,11 +2,8 @@ package Exercise;
 
 public class SoccerPreparationStrategy extends PreparationStrategy {
 
-    private String name = "soccer preparation";
-
-    @Override
-    public String getName(){
-        return name;
+    public SoccerPreparationStrategy() {
+        this.name = "soccer preparation";
     }
 
     @Override

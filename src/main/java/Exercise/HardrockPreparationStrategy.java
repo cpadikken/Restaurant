@@ -2,11 +2,8 @@ package Exercise;
 
 public class HardrockPreparationStrategy extends PreparationStrategy {
 
-    private String name = "hardrock preparation";
-
-    @Override
-    public String getName(){
-        return name;
+    public HardrockPreparationStrategy() {
+        this.name = "hardrock preparation";
     }
 
     @Override
