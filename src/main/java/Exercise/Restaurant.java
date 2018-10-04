@@ -18,11 +18,6 @@ public class Restaurant {
     }
 
     public void removeAllCooksWithPreparationType (String preparation){
-//        for (int i = cooks.size() - 1; i >= 0; i --){
-//            if (cooks.get(i).getPreparation().getName() == preparation){
-//                cooks.remove(i);
-//            }
-//        }
         Iterator<Cook> iterator = cooks.iterator();
         while (iterator.hasNext()) {
             Cook cook = iterator.next();
