@@ -60,4 +60,14 @@ public class CookTest {
         assertEquals(expectedOutput, outContent.toString());
     }
 
+    @Test
+    public void cookShouldPrintMeditationPreparationToConsole(){
+        Cook c = new Cook("Harley", new MeditationPreparationStrategy());
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        c.prepare();
+        String expectedOutput = "Harley has the meditation preparation:  5 minutes of mindfulness and a short breathing exercise\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
 }

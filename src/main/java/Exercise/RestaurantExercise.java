@@ -19,5 +19,11 @@ public class RestaurantExercise {
 
         r.removeAllCooksWithPreparationType("soccer preparation");
         r.prepareCooks();
+
+        Cook Daan = new Cook ("Daan", new MeditationPreparationStrategy());
+        r.addCook(Daan);
+
+        r.replaceExisitngCookWithNewCook(Peter, "Michel");
+        r.prepareCooks();
     }
 }

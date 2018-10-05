@@ -32,4 +32,10 @@ public class Restaurant {
             c.prepare();
         }
     }
+
+    public void replaceExisitngCookWithNewCook(Cook leavingCook, String name){
+        Cook newCook = new Cook(name, leavingCook.getPreparation());
+        cooks.add(newCook);
+        cooks.remove(leavingCook);
+    }
 }
