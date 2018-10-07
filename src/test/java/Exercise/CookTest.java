@@ -11,7 +11,7 @@ public class CookTest {
 
     @Before
     public void setup() {
-        a = new Cook("Carla", new SimplePreparationStrategy());
+        a = new Cook("Carla", PreparationFactory.getPreparationStrategy(PreparationType.SIMPLE));
     }
 
     @Test
@@ -33,7 +33,7 @@ public class CookTest {
 
     @Test
     public void cookShouldPrintSoccerPreparationToConsole(){
-        Cook b = new Cook("Bianca", new SoccerPreparationStrategy());
+        Cook b = new Cook("Bianca", PreparationFactory.getPreparationStrategy(PreparationType.SOCCER));
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         b.prepare();
@@ -52,7 +52,7 @@ public class CookTest {
 
     @Test
     public void cookShouldPrintHardrockPreparationToConsole(){
-        Cook c = new Cook("Lois", new HardrockPreparationStrategy());
+        Cook c = new Cook("Lois", PreparationFactory.getPreparationStrategy(PreparationType.HARDROCK));
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         c.prepare();
@@ -62,12 +62,18 @@ public class CookTest {
 
     @Test
     public void cookShouldPrintMeditationPreparationToConsole(){
-        Cook c = new Cook("Harley", new MeditationPreparationStrategy());
+        Cook c = new Cook("Harley", PreparationFactory.getPreparationStrategy(PreparationType.MEDITATION));
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         c.prepare();
         String expectedOutput = "Harley has the meditation preparation:  5 minutes of mindfulness and a short breathing exercise\n";
         assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    public void cookSetsPreparationToNull(){
+        a.setPreparation(null);
+        assertNull(a.getPreparation());
     }
 
 }

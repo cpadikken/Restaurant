@@ -18,8 +18,8 @@ public class RestaurantTest {
 
     @Test
     public void makeAllCooksPrintPreparationsToConsole(){
-        Cook alice = new Cook("Alice", new SimplePreparationStrategy());
-        Cook george = new Cook ("George", new SoccerPreparationStrategy());
+        Cook alice = new Cook("Alice", PreparationFactory.getPreparationStrategy(PreparationType.SIMPLE));
+        Cook george = new Cook ("George", PreparationFactory.getPreparationStrategy(PreparationType.SOCCER));
         restaurant.addCook(alice);
         restaurant.addCook(george);
 
@@ -32,9 +32,9 @@ public class RestaurantTest {
 
     @Test
     public void removesAllCooksFromArrayList(){
-        Cook alice = new Cook("Alice", new SimplePreparationStrategy());
-        Cook george = new Cook ("George", new SoccerPreparationStrategy());
-        Cook annie = new Cook ("Annie", new SoccerPreparationStrategy());
+        Cook alice = new Cook("Alice", PreparationFactory.getPreparationStrategy(PreparationType.SIMPLE));
+        Cook george = new Cook ("George", PreparationFactory.getPreparationStrategy(PreparationType.SOCCER));
+        Cook annie = new Cook ("Annie", PreparationFactory.getPreparationStrategy(PreparationType.SOCCER));
         restaurant.addCook(alice);
         restaurant.addCook(george);
         restaurant.addCook(annie);
@@ -48,9 +48,9 @@ public class RestaurantTest {
 
     @Test
     public void testReplaceExistingCookWithNewCook(){
-        Cook alice = new Cook("Alice", new SimplePreparationStrategy());
+        Cook alice = new Cook("Alice", PreparationFactory.getPreparationStrategy(PreparationType.SIMPLE));
         restaurant.addCook(alice);
-        restaurant.replaceExisitngCookWithNewCook(alice, "Chip");
+        restaurant.replaceExistingCookWithNewCook(alice, "Chip");
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         restaurant.prepareCooks();

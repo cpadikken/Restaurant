@@ -27,7 +27,7 @@ public class Restaurant {
         }
     }
 
-    public void replaceExisitngCookWithNewCook(Cook leavingCook, String name){
+    public void replaceExistingCookWithNewCook(Cook leavingCook, String name){
         Cook newCook = new Cook(name, leavingCook.getPreparation());
         cooks.add(newCook);
         cooks.remove(leavingCook);
